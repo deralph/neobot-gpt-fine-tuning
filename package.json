@@ -1,0 +1,20 @@
+{
+  "name": "finetuner",
+  "version": "1.0.0",
+  "license": "MIT",
+  "description": "A demo app to showcase usage of the Pi App Platform.",
+  "author": {
+    "name": "Pi Core Team"
+  },
+  "type": "module",
+  "scripts": {
+    "mainBuild": "cd.. && tsc -p .",
+    "preBuild": " cd client && npm install && npm run build",
+    "start": " ts-node-dev index.ts",
+    "build": "tsc -p .",
+    "stop": "node uploadFile.js"
+  },
+  "dependencies": {
+    "openai": "^3.2.1"
+  }
+}
