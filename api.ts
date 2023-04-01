@@ -1,7 +1,7 @@
 /* api.js */
 import { config } from 'dotenv'
+config();
 import { Configuration, OpenAIApi } from 'openai'
-config()
 console.log(process.env.OPENAI_KEY)
 const openaiApiKey = process.env.OPENAI_KEY
 const configuration = new Configuration({

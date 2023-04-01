@@ -1,4 +1,4 @@
-## GPT Fine-Tuning using Node.js
+## GPT Fine-Tuning using Node.ts
 
 ### Prerequisites
 
@@ -27,34 +27,43 @@ Next, set the environment variable for your OpenAI API Key in the .env file
 OPENAI_KEY="your-api-key"
 ```
 
-### Api.js file
+### Api.ts file
 
-The api.js file is where the openaiapi and its configuration is being initiated,
+The api.ts file is where the openaiapi and its configuration is being initiated,
 It wil be imported in all other files throughout the project
 
 ### Running the app
 
-First, upload the file with the example or custom data set to OpenAI.
-Next, use the File ID that is generated to create a new fine tune based on davinci by updating theas the value of `training_file` in `createFineTune.js`.
+First,create your `fineTuner.jsonl` file ,this is an example below
+
+```sh
+{"prompt": "<prompt text>", "completion": "<ideal generated text>"}
+{"prompt": "<prompt text>", "completion": "<ideal generated text>"}
+{"prompt": "<prompt text>", "completion": "<ideal generated text>"}
+
+```
+
+Then upload the file with the example or custom data set to OpenAI.
+Next, use the File ID that is generated to create a new fine tune based on davinci by updating theas the value of `training_file` in `createFineTune.ts`.
 
 Finally, create the fine tune:
 
 ```sh
-node createFineTune.js
+ npm run createFineTune
 ```
 
 ### Listing your Fine Tunes and testing it out
 
-Once the fine tune is created, it will take some time to process. We can get the status of the fine tune, as well as the model ID, by calling the listFineTunes API method.
+Once the fine tune is created, it will take some time to process. We can get the status of the fine tune, as well as the model ID, by calling the listFineTunes API method in the `createCompletion.ts` file
 
 Now that the fine tune has processed and our. new model is ready, we can try it out.
 
-Open createCompletion.js. Here, update the fine_tuned_model value with your model name.
+Open createCompletion.ts. Here, update the "name your name" value with your prompt text .
 
 Next, run the script:
 
 ```sh
-node createCompletion.js
+ npm start
 ```
 
 This project show how to easily fine-tune a GPT data model. This codebase goes along with the tutorial located [here](https://nader.substack.com/p/supercharge-your-gpt-model-custom).
